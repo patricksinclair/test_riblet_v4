@@ -20,34 +20,34 @@ FoamFile
     leftWall
     {
         type            patch;
-        nFaces          52;
-        startFace       22892;
+        nFaces          28;
+        startFace       6524;
     }
     rightWall
     {
         type            patch;
-        nFaces          52;
-        startFace       22944;
+        nFaces          28;
+        startFace       6552;
     }
     lowerWall
     {
         type            wall;
         inGroups        List<word> 1(wall);
-        nFaces          480;
-        startFace       22996;
+        nFaces          216;
+        startFace       6580;
     }
     atmosphere
     {
         type            patch;
-        nFaces          224;
-        startFace       23476;
+        nFaces          120;
+        startFace       6796;
     }
     defaultFaces
     {
         type            empty;
         inGroups        List<word> 1(empty);
-        nFaces          23296;
-        startFace       23700;
+        nFaces          6720;
+        startFace       6916;
     }
 )
 

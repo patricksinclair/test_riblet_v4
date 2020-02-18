@@ -14,7 +14,7 @@ FoamFile
     object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+#includeIfPresent "../constants.dat"
 // //p_0 = $p_0;
 // p100 $p_1;
 // const scalar p1_i = p100;
@@ -29,29 +29,29 @@ boundaryField
     leftWall
     {
 
-      type codedFixedValue;
-      value     uniform (0 0 0);
-
-      redirectType    parabolic_vel_profile;
-
-      code
-      #{
-        #include "/home/patrick/OpenFOAM/patrick-7/run/diagnostics/gradient_slippy_riblet/solo_riblet/constants2.dat"
-        const fvPatch& boundaryPatch = patch();
-        const vectorField& Cf = boundaryPatch.Cf();
-        vectorField& field = *this;
-
-        forAll(Cf, faceI)
-        {
-          const scalar y = Cf[faceI].y();
-          //const scalar u_x = -((p_1 - p_0)/L)*y*(h-y);
-          const scalar u_x = (u_max/h)*y;
-
-          field[faceI] = vector(u_x, 0, 0);
-        }
-      #};
-        // type fixedValue;
-        // value uniform (1 0 0);
+      // type codedFixedValue;
+      // value     uniform (0 0 0);
+      //
+      // redirectType    parabolic_vel_profile;
+      //
+      // code
+      // #{
+      //   #include "/home/patrick/OpenFOAM/patrick-7/run/test_riblets/test_riblet_v4/quad_riblet/constants2.dat"
+      //   const fvPatch& boundaryPatch = patch();
+      //   const vectorField& Cf = boundaryPatch.Cf();
+      //   vectorField& field = *this;
+      //
+      //   forAll(Cf, faceI)
+      //   {
+      //     const scalar y = Cf[faceI].y();
+      //     //const scalar u_x = -((p_1 - p_0)/L)*y*(h-y);
+      //     const scalar u_x = (u_max/h)*y;
+      //
+      //     field[faceI] = vector(u_x, 0, 0);
+      //   }
+      // #};
+        type fixedValue;
+        value uniform ($u_max 0 0);
 
     }
 
@@ -73,10 +73,7 @@ boundaryField
 
     atmosphere
     {
-        // type            pressureInletOutletVelocity;
-        // value           uniform (10 0 0);
-        // type            fixedValue;
-        // value           uniform (0.1 0 0);
+
         type slip;
     }
 

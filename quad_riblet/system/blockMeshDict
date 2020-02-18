@@ -131,11 +131,11 @@ vertices
 
 );
 
-ribletX_nC 16; //the no. of x-cells in the blocks on/above the riblets
-plateauX_nC 12; //the no. of x-cells in the blocks on/above the space between riblets
+ribletX_nC 10; //the no. of x-cells in the blocks on/above the riblets
+plateauX_nC 5; //the no. of x-cells in the blocks on/above the space between riblets
 
-surfaceY_nC 32; //the no. of y-cells in the blocks on the surface
-fluidY_nC 20; //the n0. of y-cells in the blocks in the surrounding fluid (e.g. ocean)
+surfaceY_nC 12; //the no. of y-cells in the blocks on the surface
+fluidY_nC 16; //the n0. of y-cells in the blocks in the surrounding fluid (e.g. ocean)
 
 
 blocks
